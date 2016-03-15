@@ -4,11 +4,10 @@
 ###1. Compare distributed and centralized version control systems. What advantages does a distributed version control system have over a centralized versioncontrol system.
 
 ##### Distributed Version Control System
-In the past few years, distributed VCSs have slowly started to supplant centralized VCSs in many software
-development organizations as well as in the world of opensource software development. The model for distributed VCS is peertopeer;there is no central server. Instead, developers copy, or clone, the entire source code repository from one another, placing the entire history of a project on their local hard drives. 
+In a DVCS (such as Git, Mercurial, Bazaar or Darcs), clients don’t just check out the latest snapshot of the files: they fully mirror the repository. Thus if any server dies, and these systems were collaborating via it, any of the client repositories can be copied back up to the server to restore it. Every clone is really a full backup of all the data.
 <br>
 <br>
-In doing so, distributed VCS avoids the primary pitfall of centralized systems, allowing developers to work freely, anywhere, any time, with the confidence that they have everything they need to get their jobs done right.
+Furthermore, many of these systems deal pretty well with having several remote repositories they can work with, so you can collaborate with different groups of people in different ways simultaneously within the same project. This allows you to set up several types of workflows that aren’t possible in centralized systems, such as hierarchical models.
 <br>
 <br>
 In a distributed VCS, when a developer makes changes on a local machine to a copy of a repository, the developer can then optionallypush these changes back into the other copies. This can prove challenging if there are many developers working on a project, as it would entail pushing code to every developer’s copy of the repository each time.
@@ -17,24 +16,16 @@ In a distributed VCS, when a developer makes changes on a local machine to a cop
 As a result, though a distributed VCS does not prescribe a centralized repository, in practice, most development teams “bless” a single copy of the repository as the primary, or central, copy. They then push changes to this central copy, and other developers later pull these changes down to their own copies.
 
 ##### Centralized Version Control System
-Most versioncontrol systems, such as Subversion, CVS, Perforce, and Microsoft’s Visual Source Safe, have historically employed a centralized architecture. In a centralized VCS, a single server acts as the primaryrepository for all of the code, images, and other assets in a project. Developers working on the project “check out” the files they need from the server, similar to checking out books from a library. Upon checkout, the system copies the latest version of the requested files to the developer’s computer, also known as
-the client, and he or she begins working.
+The major issue that people encounter is that they need to collaborate with developers on other systems. To deal with this problem, Centralized Version Control Systems (CVCSs) were developed. These systems, such as CVS, Subversion, and Perforce, have a single server that contains all the versioned files, and a number of clients that check out files from that central place. For many years, this has been the standard for version control.
 <br>
 <br>
-Depending on the system, other developers may or may not be able to check out the same files. Centralized VCSs that employ “file locking” prevent concurrent access to files, allowing only one copy of any file in the repository to be checked out at any given time. Such locking mechanisms prevent the types of conflict Becky and Greg faced, blocking both developers from attempting to make changes to the same file at the same time.
+This setup offers many advantages, especially over local VCSs. For example, everyone knows to a certain degree what everyone else on the project is doing. Administrators have fine-grained control over who can do what; and it’s far easier to administer a CVCS than it is to deal with local databases on every client.
 <br>
 <br>
-Unfortunately, while it seems to be a simple and effective solution, file locking turns out to be a nuisance and
-hinderance to team productivity. If any given file can only be edited by a single developer at any given time,
-other developers may find themselves waiting for hours or even days before they are able to work. For instance,
-if Becky has the file checked out, Greg would not be able to do the work he needs to do to it.
+However, this setup also has some serious downsides. The most obvious is the single point of failure that the centralized server represents. If that server goes down for an hour, then during that hour nobody can collaborate at all or save versioned changes to anything they’re working on.
 <br>
 <br>
-As a result, most modern centralized VCSs do not lock files on checkout, but instead ask developers to resolve
-conflicts when a file is checked back in to the repository. If no one else has changed the file in question, then
-checkin is rather straightforward. However, if someone has changed the file, the developer must complete a file
-merge, reconciling the differences between the two copies before checking in the newly merged copy.
-
+If the hard disk the central database is on becomes corrupted, and proper backups haven’t been kept, you lose absolutely everything – the entire history of the project except whatever single snapshots people happen to have on their local machines. Local VCS systems suffer from this same problem – whenever you have the entire history of the project in a single place, you risk losing everything.
 ##### Advantages Over Centralized Version Control
 The act of cloning an entire repository gives distributed version control tools several advantages over centralized systems:
 <br>
