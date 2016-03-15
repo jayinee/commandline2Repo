@@ -62,17 +62,10 @@ If the project owner likes your work, they might pull your fix into the original
 At the heart of open source is the idea that by sharing code, we can make better, more reliable software.
 In fact, when you create a repository on GitHub, you have a choice of automatically including a license file, which determines how you want your project to be shared with others.
 
-
-
-
 ###Question
 ###3.Files in UNIX systems have 'owners', and there are 'groups' that can have access to a file. In addition a 'user' can belong to a group. Explain what all these terms mean and the relationship between them.
-
 #####Title: File Users, Owners, and Groups
 #####Category: Working with Files and Directories through The Command Line
-
-
-
 #####Users and Groups
 Although every UNIX user has a username of up to eight characters long, inside the computer UNIX represents each user by a single number: the user identifier ( UID ). Usually, the UNIX system administrator gives every user on the computer a different UID .
 <br>
@@ -104,4 +97,141 @@ lp , which is used for the printer system.
 <br>
 <br>
 nobody , which is a user that owns no files and is sometimes used as a default user for unprivileged operations.
-#####a 'user' can belong to a group
+
+###Question
+###4. There are operators that can be used to test files, strings, and integers. List at least four operators that can be used to test files, four that can be used to test strings, and four that can be used to test integers and describe how these operators work with at least one example usage of each.
+#####Title: Test Operators
+#####Category: Conditionals on The Command Line
+
+#####File Test Operators
+-e : Returns true if a file exists
+<br>
+-f : Returns true if a file is a regular file, not a directory
+<br>
+-d : Returns true if a file is a directory
+<br>
+-w : Returns true if you can write to a given file
+<br>
+-r : Returns true if you can read a given file
+
+##### example of file test operator
+"#"!/bin/sh
+<br>
+file="/var/www/cmd/unix/test.sh"
+<br>
+if [ -r $file ]
+<br>
+then
+<br>
+echo "File has read access"
+<br>
+else
+<br>
+echo "File does not have read access"
+<br>
+fi
+<br>
+This would produce following result −
+<br>
+File has read access
+
+##### String Test Operators
+= : Returns true if two strings are identical
+<br>
+!= : Returns true if two strings are not identical
+<br>
+< : Returns true if the first string is alphabetically less than the second string (in sorting order)
+<br>
+">" : Returns true if the first string is alphabetically greater than the second string
+
+##### example of string test operator
+'#'!/bin/sh
+<br>
+a="abc"
+<br>
+b="efg"
+<br>
+if [ $a = $b ]
+<br>
+if [ $a != $b ]
+<br>
+then
+<br>
+   echo "$a != $b : a is not equal to b"
+  <br> 
+else
+<br>
+   echo "$a != $b: a is equal to b"
+   <br>
+fi
+<br>
+This would produce following result −
+<br>
+abc = efg: a is not equal to b
+<br>
+abc != efg : a is not equal to b
+
+#####Integer Test Operators
+-eq : Returns true if two integers are equal
+<br>
+-ne : Returns true if two integers are not equal
+<br>
+-gt : Returns true if the number on the left is greater than the number on the right
+<br>
+-ge : Returns true if the number on the left is greater than or equal to the number on the right
+<br>
+-lt : Returns true if the number on the left is less than the number on the right
+<br>
+-le : Returns true if the number on the left is less than or equal to the number on the right
+
+##### example of integer test operator
+'#'!/bin/sh
+<br>
+a=10
+<br>
+b=20
+<br>
+if [ $a -eq $b ]
+<br>
+then
+<br>
+   echo "$a -eq $b : a is equal to b"
+   <br>
+else
+<br>
+   echo "$a -eq $b: a is not equal to b"
+   <br>
+fi
+<br>
+if [ $a -ne $b ]
+<br>
+then
+<br>
+   echo "$a -ne $b: a is not equal to b"
+   <br>
+else
+<br>
+   echo "$a -ne $b : a is equal to b"
+   <br>
+fi
+<br>
+if [ $a -gt $b ]
+<br>
+then
+<br>
+   echo "$a -gt $b: a is greater than b"
+   <br>
+else
+<br>
+   echo "$a -gt $b: a is not greater than b"
+   <br>
+fi
+<br>
+This would produce following result −
+<br>
+10 -eq 20: a is not equal to b
+<br>
+10 -ne 20: a is not equal to b
+<br>
+10 -gt 20: a is not greater than b
+
