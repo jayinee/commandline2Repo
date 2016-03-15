@@ -235,3 +235,9 @@ This would produce following result −
 <br>
 10 -gt 20: a is not greater than b
 
+###Question
+###5. Describe UNIX processes for a beginner. Then, discuss function of the ps command, and include an example of the syntax an usage of the ps command.
+#####Title: Introduction to UNIX Processes
+#####Category: UNIX Processes on the Command Line
+
+
