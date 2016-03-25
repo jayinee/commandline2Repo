@@ -1,8 +1,6 @@
 PROJECT ASSIGNMENT
 
-1. We’ve seen that counting common elements between sets is crucial to counting the total number of elements in their union. For this assignment, write a function in JavaScript that takes two arrays as inputs and returns the number of common elements between them. For simplicity, assume that the arrays contain all distinct values.
-
-
+1. We’ve seen that counting common elements between sets is crucial to counting the total number of elements in their union. For this assignment, write a function in JavaScript that takes two arrays as inputs and returns the number of common elements between them. For simplicity, assume that the arrays contain all distinct values
 
 <!--
     1. We’ve seen that counting common elements between sets is crucial to counting the total number of
@@ -12,7 +10,7 @@ contain all distinct values.
 
 -->
 
-
+````
 <!DOCTYPE html>
 
 <html>
@@ -37,7 +35,7 @@ contain all distinct values.
 
 </body>
 </html>
-
+````
 
 
 
@@ -46,7 +44,7 @@ contain all distinct values.
 2. In JavaScript, implement the p(n,k) and c(n,k) functions and . You may use the function fact(n) defined in the chapter in your code or write your own that calculates the factorial of. There are a number of ways you can write the factorial function. Be as creative as you can!
 
 
-
+````
 <!DOCTYPE html>
 
 <!--
@@ -109,4 +107,4 @@ you can write the factorial function. Be as creative as you can!
 </body>
 </html>
 
-
+````
